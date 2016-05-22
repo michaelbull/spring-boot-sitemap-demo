@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import javax.inject.Inject;
 import java.net.MalformedURLException;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 public final class SitemapService {
@@ -28,6 +27,6 @@ public final class SitemapService {
 			sitemap.addUrl(BASE_URL + "/blog/" + entry.getTitle());
 		}
 
-		return sitemap.writeAsStrings().stream().collect(Collectors.joining());
+		return String.join("", sitemap.writeAsStrings());
 	}
 }
