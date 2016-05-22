@@ -26,8 +26,8 @@ public final class SitemapView extends AbstractView {
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType(MediaType.APPLICATION_XML_VALUE);
 
-		Writer writer = response.getWriter();
-		writer.append(service.createSitemap());
-		writer.flush();
+		try (Writer writer = response.getWriter()) {
+			writer.append(service.createSitemap());
+		}
 	}
 }
