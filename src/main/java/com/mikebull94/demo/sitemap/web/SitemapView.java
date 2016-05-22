@@ -14,11 +14,11 @@ import java.util.Map;
 import java.util.Objects;
 
 @Component
-final class SitemapView extends AbstractView {
+public final class SitemapView extends AbstractView {
 	private final SitemapService service;
 
 	@Inject
-	SitemapView(SitemapService service) {
+	public SitemapView(SitemapService service) {
 		this.service = Objects.requireNonNull(service);
 	}
 
